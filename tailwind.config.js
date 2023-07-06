@@ -2,10 +2,18 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
+
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        bebas: ['Bebas Neue','sans-serif'],
+        pro:['Prompt', 'sans-serif']
+      }
+    },
   },
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
 }
 
