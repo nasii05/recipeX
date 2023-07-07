@@ -1,15 +1,53 @@
+<!-- Searchbar -->
+
 <div class="w-full h-20 flex items-center justify-center mt-16 bg-white font-pro">
-  <div class="w-[80%] flex h-16 bg-blue-400 rounded-md ">
-     <input type="text" class="w-[90%] h-full text-2xl md:text-3xl rounded-s-md"
-     placeholder="Search Your Recipe...">
-     <button type="submit" class="w-[10%] h-16 bg- text-center flex items-center justify-center">
-      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"  viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+  <div class="w-[80%] flex h-16 bg-blue-400 rounded-md">
+    <input type="text" class="w-[90%] h-full text-2xl md:text-3xl rounded-s-md" placeholder="Search Your Recipe..."
+      #input />
+    <!-- (keydown)="getrecipe(input.value)" -->
+    <button type="submit" class="w-[10%] h-16 bg- text-center flex items-center justify-center"
+      (click)="getrecipe(input.value)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 16 16">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
       </svg>
     </button>
   </div>
 </div>
 
-<div class="h-max w-full py-5 bg-blue-400">
+<!-- fetched card -->
+<!-- <div class="w-full h-max bg-blue-400 grid grid-rows-2 md:grid-rows-3 lg:grid-rows-4 gap-x-2 gap-y-2 ">
+  <div class="h-screen flex items-center justify-center" *ngFor="let item of data?.hits">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="{{item?.recipe?.images?.REGULAR?.url}}" alt="avatar" style="width: 300px; height: 300px;">
+        </div>
+        <div class="flip-card-back">
+          <h1 class="text-3xl">{{item?.recipe?.label}}</h1>
+          <h1 class="text-3xl">{{item?.recipe?.cuisineType}}</h1>
+          <h1 class="text-3xl">{{item?.recipe?.dishType}}</h1>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
 
+<div class="flex w-full h-max justify-center items-center">
+  <div
+    class="grid gap-0 grid-cols-1 grid-rows-1 md:grid-cols-2 md:grid-rows-2 lg:grid-rows-3 lg:grid-cols-3 gap-x-2 gap-y-2">
+    <div
+      class="w-80 h-96 flex flex-col bg-white border-2 border-slate-900 rounded-md shadow-2xl
+      hover:scale-105 ease-out duration-[3000ms] overflow-hidden"
+      *ngFor="let item of data?.hits">
+      <div class="w-80 h-60 bg-blue-400 rounded-md ">
+        <img src="{{item?.recipe?.images?.REGULAR?.url}}" class="w-80 h-60" alt="" />
+      </div>
+      <div class="w-80 h-20 bg-blue-400 text-center">
+        <h1 class="text-violet-800 text-xl font-bebas">{{item?.recipe?.label}}</h1>
+        <a routerLink="">View👁️</a>
+      </div>
+    </div>
+  </div>
 </div>
